@@ -26,7 +26,8 @@ const Welcome = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const url = "https://musicer-backend.onrender.com/Signup-Login/data";
+        const url =
+          "https://musicer-backend-3zjg.onrender.com/Signup-Login/data";
         const response = await axios.post(url, { username });
 
         await setData(response.data);

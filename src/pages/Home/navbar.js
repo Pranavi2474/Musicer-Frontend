@@ -60,6 +60,7 @@ const Navbar = () => {
                     color: "#ffffff",
                     fontWeight: "300",
                     marginRight: "16px",
+                    cursor: "pointer",
                   }}
                   onClick={() => {
                     navigate("/home", { state: { username } });
@@ -77,6 +78,7 @@ const Navbar = () => {
                     color: "#ffffff",
                     fontWeight: "300",
                     marginRight: "16px",
+                    cursor: "pointer",
                   }}
                   onClick={() => {
                     navigate("/favourites", { state: { username } });
@@ -113,6 +115,7 @@ const Navbar = () => {
                     color: "#ffffff",
                     fontWeight: "300",
                     marginRight: "16px",
+                    cursor: "pointer",
                   }}
                   onClick={() => {
                     navigate("/profile", { state: { username } });
@@ -134,6 +137,7 @@ const Navbar = () => {
                   fontSize: "20px",
                   color: "#ffffff",
                   fontWeight: "700",
+                  cursor: "pointer",
                   //   textDecoration: "none",
                   //   listStyle: "none",
                 }}
@@ -143,7 +147,7 @@ const Navbar = () => {
               >
                 <i
                   class="bi bi-box-arrow-left"
-                  style={{ fontWeight: "400" }}
+                  style={{ fontWeight: "400", cursor: "pointer" }}
                 ></i>{" "}
                 Log Out
               </a>

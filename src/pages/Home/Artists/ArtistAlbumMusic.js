@@ -5,12 +5,16 @@ import Navbar from "../navbar";
 import ErrorModal from "../../../Dialog";
 import { Button } from "react-bootstrap";
 import { useNavigate, useLocation } from "react-router-dom";
+import axios from "axios";
 
 const ArtistAlbumMusic = () => {
   const ids = useParams();
+  const [loading, setLoading] = useState();
   const [data, setData] = useState("");
   const [modalShow, setModalShow] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const [Error, setError] = useState("");
+  const [error, seterror] = useState("");
   const accessToken = useContext(MyToken);
   const [tracks, setTracks] = useState([]);
   const navigate = useNavigate();
@@ -41,6 +45,42 @@ const ArtistAlbumMusic = () => {
     }
   }, [accessToken, ids.id, parameters]);
 
+  const fav = async (id) => {
+    setLoading(true); // Set loading to true when making the API request
+
+    try {
+      const data = {
+        username: username,
+        id: id,
+        type: "album",
+      };
+      const url = "https://musicer-backend-3zjg.onrender.com/Fav/create";
+      await axios.post(url, data);
+
+      // If the request is successful, show an alert
+      setError("Added Successfully!!");
+      seterror("Added to Favorites..!");
+      setErrorMessage("Song Added to your Favourite List");
+      setModalShow(true);
+    } catch (error) {
+      // If there's an error, show an alert with the error message
+      if (error.response && error.response.status === 400) {
+        setError("Couldn't Add Successfully!!");
+        seterror("We Couldnt add  to Favorites..!");
+        setErrorMessage(error.response.data);
+        setModalShow(true);
+      } else {
+        setError("Couldn't Add Successfully!!");
+        seterror("We Couldnt add  to Favorites..!");
+        setErrorMessage(error.message);
+        setModalShow(true);
+      }
+    } finally {
+      // Reset loading state after the API request is complete
+      setLoading(false);
+    }
+  };
+
   useEffect(() => {
     if (username === null) {
       navigate("/");
@@ -70,6 +110,9 @@ const ArtistAlbumMusic = () => {
                 )}
               <center>
                 <Button
+                  onClick={() => {
+                    fav(item.id);
+                  }}
                   className="btnFav"
                   style={{
                     background: "red",

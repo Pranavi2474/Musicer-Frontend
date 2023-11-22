@@ -64,7 +64,10 @@ const ArtistRoute = () => {
               }}
               key={i}
             >
-              <div className="card card-flex" style={{ width: "18rem" }}>
+              <div
+                className="card card-flex"
+                style={{ width: "18rem", cursor: "pointer" }}
+              >
                 {album.images && album.images.length > 0 && (
                   <img
                     className="card-img-top"
@@ -74,7 +77,14 @@ const ArtistRoute = () => {
                   />
                 )}
                 <div className="card-body">
-                  <p className="card-text" style={{ textAlign: "center" }}>
+                  <p
+                    className="card-text value"
+                    style={{
+                      textAlign: "center",
+                      color: "white",
+                      fontSize: "20px",
+                    }}
+                  >
                     {album.name}
                   </p>
                 </div>

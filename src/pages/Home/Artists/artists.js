@@ -37,7 +37,7 @@ const Heroes = () => {
   useEffect(() => {
     if (accessToken) {
       fetch(
-        `https://api.spotify.com/v1/artists?ids=4gYivvQ8ARDxds1heBados%2C59FvleV8Y4jwMY8PzZu5nX%2C4zCH9qm4R2DADamUHMCa6O%2C2FgHPfRprDaylrSRVf1UlN%2C5sSzCxHtgL82pYDvx2QyEU%2C0fhunuOz2OuOEr3YK5ctSm`,
+        `https://api.spotify.com/v1/artists?ids=4gYivvQ8ARDxds1heBados%2C59FvleV8Y4jwMY8PzZu5nX%2C4zCH9qm4R2DADamUHMCa6O%2C2FgHPfRprDaylrSRVf1UlN%2C5sSzCxHtgL82pYDvx2QyEU`,
         parameters
       )
         .then((res) => res.json())
@@ -78,6 +78,7 @@ const Heroes = () => {
               }}
               style={{
                 textDecoration: "none",
+                cursor: "Pointer",
                 boxShadow:
                   "rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px",
                 borderRadius: "5px",

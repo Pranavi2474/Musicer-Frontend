@@ -1,4 +1,5 @@
 import ArtistRoute from "../pages/Artist-route/ArtistRoute";
+import FavMain from "../pages/Favourites/FavMain";
 import ArtistAlbumMusic from "../pages/Home/Artists/ArtistAlbumMusic";
 import Home from "../pages/Home/home";
 import MusicPlayer from "../pages/Music_Player/musicplayer";
@@ -43,5 +44,9 @@ export const routes = [
   {
     path: "/search/album/music/:id",
     component: ArtistAlbumMusic,
+  },
+  {
+    path: "/favourites",
+    component: FavMain,
   },
 ];

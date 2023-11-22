@@ -198,11 +198,11 @@ const FavMain = () => {
                         key={index}
                         style={{
                           background:
-                            "linear-gradient(to bottom, white, #F9F6EE)",
+                            "linear-gradient(to bottom, rgba(255, 215, 0, 1), rgba(218, 165, 32, 0.5))", // Linear gradient with decreasing opacity
                           position: "relative",
-                          display: "flex", // Add flex display for better alignment
-                          alignItems: "center", // Align items vertically in the center
-                          fontSize: "20px",
+                          display: "flex",
+                          alignItems: "center",
+                          borderRadius: "20px",
                         }}
                       >
                         <h3
@@ -251,11 +251,11 @@ const FavMain = () => {
                           {/* Move buttons to the right with margin */}
                           <Button
                             className="btn play ms-5 me-5"
-                            style={{ width: "100px" }}
+                            style={{ width: "100px", background: "#7393B3" }}
                             onClick={(e) => {
                               e.preventDefault();
                               navigate(
-                                `/artist/new/${favSongs[index].albums[0].id}`,
+                                `/search/album/music/${favSongs[index].albums[0].id}`,
                                 {
                                   state: { username },
                                 }
@@ -265,7 +265,7 @@ const FavMain = () => {
                             Play
                           </Button>
                           <Button
-                            style={{ width: "100px" }}
+                            style={{ width: "100px", background: "#AA4A44" }}
                             className="btn delete ms me-5"
                             onClick={() => handleDelete(user.id)}
                           >
@@ -332,7 +332,7 @@ const FavMain = () => {
                             onClick={(e) => {
                               e.preventDefault();
                               navigate(
-                                `/track/${favSongs[index]?.tracks[0].id}`,
+                                `/search/album/${favSongs[index]?.tracks[0].id}`,
                                 {
                                   state: { username },
                                 }
