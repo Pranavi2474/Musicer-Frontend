@@ -266,7 +266,7 @@ const FavMain = () => {
                           </Button>
                           <Button
                             style={{ width: "100px", background: "#AA4A44" }}
-                            className="btn delete ms me-5"
+                            className="btn delet ms me-5"
                             onClick={() => handleDelete(user.id)}
                           >
                             Remove

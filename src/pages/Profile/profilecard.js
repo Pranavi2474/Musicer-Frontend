@@ -146,7 +146,7 @@ const ProfileCard = () => {
         "https://musicer-backend-3zjg.onrender.com/Signup-Login/delete";
 
       // const url1 = "http://localhost:5000/Fav/deleteAll";
-      const url1 = "https://musicer-backend-3zjg.onrender.com/Fav/delete";
+      const url1 = "https://musicer-backend-3zjg.onrender.com/Fav/deleteAll";
 
       axios
         .delete(url, {
@@ -163,6 +163,7 @@ const ProfileCard = () => {
             );
             setModalShow(true);
             setLoading(false);
+            navigate("/signup");
           } else if (res.status === 404) {
             setError("Delete Error!!");
             seterror("Delete Failed");
