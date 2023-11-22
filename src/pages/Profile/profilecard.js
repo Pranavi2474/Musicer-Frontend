@@ -24,11 +24,18 @@ const ProfileCard = () => {
   const [error, seterror] = useState("");
 
   useEffect(() => {
+    if (username === null) {
+      navigate("/");
+    }
+  }, [username]);
+
+  useEffect(() => {
     setLoading(true);
     const obj = { username };
     const fetchData = async () => {
       try {
-        const url = "https://musicer-backend.onrender.com/Signup-Login/data";
+        const url =
+          "https://musicer-backend-3zjg.onrender.com/Signup-Login/data";
         const response = await axios.post(url, obj);
         setData(response.data);
         setName(response.data.name);
@@ -87,7 +94,8 @@ const ProfileCard = () => {
           password: password,
         };
         // const url = "http://localhost:5000/Signup-Login/update";
-        const url = "https://musicer-backend.onrender.com/Signup-Login/update";
+        const url =
+          "https://musicer-backend-3zjg.onrender.com/Signup-Login/update";
 
         try {
           const response = await axios.post(url, updatedData);
@@ -134,10 +142,11 @@ const ProfileCard = () => {
       setLoading(true);
       const obj1 = { username };
       // const url = `http://localhost:5000/Signup-Login/delete`;
-      const url = "https://musicer-backend.onrender.com/Signup-Login/delete";
+      const url =
+        "https://musicer-backend-3zjg.onrender.com/Signup-Login/delete";
 
       // const url1 = "http://localhost:5000/Fav/deleteAll";
-      const url1 = "https://musicer-backend.onrender.com/Fav/delete";
+      const url1 = "https://musicer-backend-3zjg.onrender.com/Fav/delete";
 
       axios
         .delete(url, {

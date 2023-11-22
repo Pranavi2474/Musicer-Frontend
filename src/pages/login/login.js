@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./login.css"; // Import your stylesheet
 import Components from "./Components";
 import { useNavigate } from "react-router-dom";
@@ -14,7 +14,11 @@ const Login = () => {
   const [modalShow, setModalShow] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
-
+  useEffect(() => {
+    if (username === null) {
+      navigate("/");
+    }
+  }, [username]);
   const usernameHandler = (e) => {
     setUsername(e.target.value);
   };
@@ -30,7 +34,7 @@ const Login = () => {
 
   const handleClick = (e) => {
     setLoading(true);
-    const url = "https://musicer-backend.onrender.com/Signup-Login/login";
+    const url = "https://musicer-backend-3zjg.onrender.com/Signup-Login/login";
     // const url = "http://localhost:5000/Signup-Login/login";
     axios
       .post(url, data)

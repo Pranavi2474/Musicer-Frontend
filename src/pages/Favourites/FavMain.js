@@ -27,7 +27,7 @@ const FavMain = () => {
 
   useEffect(() => {
     axios
-      .get(`https://musicer-backend.onrender.com/Fav?username=${username}`)
+      .get(`https://musicer-backend-3zjg.onrender.com/Fav?username=${username}`)
       .then((result) => setUsers(result.data))
       .catch((err) => console.error(err))
       .finally(() => {
@@ -97,7 +97,7 @@ const FavMain = () => {
       setLoading(true);
 
       const obj = { username, id };
-      const url = "https://musicer-backend.onrender.com/Fav/delete";
+      const url = "https://musicer-backend-3zjg.onrender.com/Fav/delete";
       await axios.delete(url, {
         data: {
           username: username,
@@ -278,7 +278,7 @@ const FavMain = () => {
                         key={index}
                         style={{
                           background:
-                            "linear-gradient(to bottom, #66ff66, #009900)", // Change the gradient colors
+                            "linear-gradient(to bottom, rgba(255, 215, 0, 1), rgba(218, 165, 32, 0.5))", // Linear gradient with decreasing opacity
                           position: "relative",
                           display: "flex",
                           alignItems: "center",
@@ -342,17 +342,17 @@ const FavMain = () => {
                               marginRight: "10px",
                               width: "100px",
                               color: "white",
-                              background: "blue",
+                              background: "#7393B3",
                             }}
                           >
                             Play
                           </Button>
                           <Button
-                            style={{ width: "100px" }}
+                            style={{ width: "100px", background: "#AA4A44" }}
                             className="btn delet ms me-5"
                             onClick={() => handleDelete(user.id)}
                           >
-                            Remove
+                            Delete
                           </Button>
                         </div>
                       </ListGroup.Item>

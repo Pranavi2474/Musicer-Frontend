@@ -2,8 +2,12 @@ import React, { useContext, useState, useEffect } from "react";
 import Navbar from "./navbar";
 import { MyToken } from "../ContextAPI/context";
 import { useLocation, useNavigate } from "react-router-dom";
-import { Spinner } from "react-bootstrap";
+import { Carousel, Spinner } from "react-bootstrap";
 import image from "../../images/silivan-munguarakarama-NrR9gn3lFKU-unsplash.jpg";
+import Welcome from "./Welcome/welcome";
+import Playlists from "./playlists/playlists";
+import Heroes from "./Artists/artists";
+import Carosuel from "../carousel/carosuel";
 
 const Home = () => {
   const [loading, setLoading] = useState();
@@ -19,31 +23,12 @@ const Home = () => {
   const [error, seterror] = useState("");
   const [modalShow, setModalShow] = useState(false);
   let username = location.state ? location.state.username : null;
-  console.log(token);
-  console.log(username);
-  const parameters = {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: "Bearer " + token,
-    },
-  };
 
   useEffect(() => {
-    setLoading(true);
-    if (token) {
-      fetch(
-        `https://api.spotify.com/v1/artists?ids=4zCH9qm4R2DADamUHMCa6O%2C2FgHPfRprDaylrSRVf1UlN%2C5sSzCxHtgL82pYDvx2QyEU%2C1mYsTxnqsietFxj1OgoGbG%2C12l1SqSNsg2mI2IcXpPWjR%2C2q1LRGJHpFxovU8Tz6OgRn`,
-        parameters
-      )
-        .then((res) => res.json())
-        .then((data) => setData(data.artists))
-        .catch((error) => {
-          console.error("Error fetching data:", error);
-        })
-        .finally(setLoading(false));
+    if (username === null) {
+      navigate("/");
     }
-  }, [token]); // Run the effect whenever token changes
+  }, [username]);
 
   console.log(data);
   const loadingContainerStyle = {
@@ -86,7 +71,21 @@ const Home = () => {
     return (
       <div>
         <Navbar />
-        <h1>{username}</h1>
+        <Welcome />
+        <Carosuel />
+        <div
+          style={{
+            textAlign: "center",
+            marginLeft: "120px",
+            marginTop: "30px",
+            marginBottom: "30px",
+            color: "goldenrod",
+          }}
+        >
+          <Heroes />
+        </div>
+        {/* <Playlists /> */}
+        {/* <h1>{username}</h1> */}
       </div>
     );
   }

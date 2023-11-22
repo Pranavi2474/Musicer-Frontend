@@ -41,6 +41,12 @@ const MusicPlayer = () => {
   const [modalShow, setModalShow] = useState(false);
 
   useEffect(() => {
+    if (username === null) {
+      navigate("/");
+    }
+  }, [username]);
+
+  useEffect(() => {
     setLoading(true); // Set loading to true before fetching data
 
     fetch(`https://api.spotify.com/v1/tracks?ids=${ids.id}`, parameters)
@@ -65,7 +71,7 @@ const MusicPlayer = () => {
         id: id,
         type: "track",
       };
-      const url = "https://musicer-backend.onrender.com/Fav/create";
+      const url = "https://musicer-backend-3zjg.onrender.com/Fav/create";
       await axios.post(url, data);
 
       // If the request is successful, show an alert

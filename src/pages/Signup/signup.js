@@ -44,7 +44,7 @@ const Signup = () => {
     console.log(data);
 
     console.log(data);
-    const url = "https://musicer-backend.onrender.com/Signup-Login/create";
+    const url = "https://musicer-backend-3zjg.onrender.com/Signup-Login/create";
     // const url = "http://localhost:5000/Signup-Login/create";
 
     if (data.name === "") {

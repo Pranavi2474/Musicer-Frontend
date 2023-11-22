@@ -18,6 +18,12 @@ const Search = () => {
   const location = useLocation();
   let username = location.state ? location.state.username : null;
 
+  useEffect(() => {
+    if (username === null) {
+      navigate("/");
+    }
+  }, [username]);
+
   const changeHandler = (e) => {
     setSearch(e.target.value);
   };
