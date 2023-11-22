@@ -54,7 +54,6 @@ const Navbar = () => {
                 <a
                   class="nav-link active"
                   aria-current="page"
-                  href="/home"
                   style={{
                     fontSize: "20px",
                     color: "#ffffff",

@@ -10,10 +10,6 @@ import Login from "../pages/login/login";
 
 export const routes = [
   {
-    path: "/login",
-    component: Login,
-  },
-  {
     path: "/",
     component: Login,
   },
